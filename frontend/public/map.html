@@ -869,10 +869,18 @@
   const apiKey = 'AIzaSyC671MpYVqMralNakYSA4oEV59s9_SN_78'; // Replace with your API key
 
   const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=hospital&key=${apiKey}`;
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS proxy
+  // const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS proxy
+  const proxyUrl = 'https://thingproxy.freeboard.io/fetch/'
 
   try {
     const response = await fetch(proxyUrl + url);
+    // const response = await fetch(url,{
+    //   headers: {
+    //     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', // Add Accept header
+    //     // 'Origin': 'your-domain.com', // Replace with your domain if needed
+    //     'User-Agent':'Thunder Client (https://www.thunderclient.com)'
+    //   }
+    // });
     const data = await response.json();
 
     if (data.status === 'OK') {
