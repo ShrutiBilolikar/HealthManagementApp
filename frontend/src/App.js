@@ -6,6 +6,8 @@ import SignupPage from './pages/Signup';
 import PrivateRoute from './PrivateRoute';
 import HomePage from './components/HomePage';
 import LoginPage from './pages/login';
+import AddDetails from './components/AddDetails'
+import AddPatientForm from './components/AddPAtientForm';
 import { AuthContext } from './AuthContext';
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/getdetails" element={<AddDetails/>} />
+        <Route path="/addpatient" element={<AddPatientForm/>} />
         {/* <Route path="/nearbyhospitals" element={<MapView />} /> */}
         <Route path="/nearbyhospitals" element={(user) ? <MapView /> : <Navigate to="/login" />} />
       </Routes>
